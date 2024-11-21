@@ -20,7 +20,7 @@ export const Favorites = () => {
 
     return (
         <>
-        <form action="POST">
+        <form action="POST" className="myForm">
             <Input type="search" id="input"/>
             <Button type="submit" id="button">Search</Button>
         </form>

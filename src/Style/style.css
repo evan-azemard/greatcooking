@@ -3,6 +3,7 @@ nav {
     justify-content: center;
     border: 1px solid grey;
     border-radius: 10px;
+    background-color: powderblue;
 }
 
 .link {
@@ -15,4 +16,9 @@ nav {
 
 form {
     padding-top: 1em;
+}
+
+.myForm {
+    margin: auto;
+    padding-bottom: 10px;
 }
