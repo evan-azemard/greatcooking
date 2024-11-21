@@ -15,10 +15,10 @@ export function Navbar() {
     return (
         <>
         <nav>
-            <Link to="/" class="link">Home</Link>
-            <Link to="/movies" class="link">Movies</Link>
-            <Link to='/movie/:id' class="link">Movie</Link>
-            <Link to='/favorites' class="link">Favorites</Link>
+            <Link to="/" className="link">Home</Link>
+            <Link to="/movies" className="link">Movies</Link>
+            <Link to='/movie/:id' className="link">Movie</Link>
+            <Link to='/favorites' className="link">Favorites</Link>
         </nav>
         </>
     )
