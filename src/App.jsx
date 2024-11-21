@@ -3,13 +3,16 @@ import { Navbar } from "./components/Navbar"
 import { Home } from "./components/Pages/Home"
 import { Recipe } from "./components/Pages/Recipe"
 import { Recipes } from "./components/Pages/Recipes"
-
+import { Button } from "@/components/ui/button"
+import './index.css';
 function App() {
 
   return (
     <>
       <BrowserRouter>
       <Navbar />
+      <Button>Click me</Button>
+
         <Routes>
           <Route path="/" Component={Home} />
           <Route path="/recipe/:id" Component={Recipe} />
