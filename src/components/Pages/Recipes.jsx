@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
-const imageBaseUrl = import.meta.env.imageBaseUrl;
+const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
+
 export const Recipes = () => {
   const [load, setLoad] = useState(true);
   const [data, setData] = useState(null);
@@ -19,8 +20,9 @@ export const Recipes = () => {
             language: 'fr-FR'
           }
         });
+
         console.log(response.data.results)
-        if (response.results) setData(response.data.results);
+        if (response.data) setData(response.data.results);
         else console.log("Error");
 
         setLoad(false);
@@ -34,6 +36,7 @@ export const Recipes = () => {
 
   console.log(data)
   if (load) return <p>Loading...</p>;
+  
   return (
     <>
       {data && (
@@ -41,8 +44,8 @@ export const Recipes = () => {
           {data.map((datum) => (
             <li key={datum.id}>
               <Link to={`/recipe/${datum.id}`}>
-                <img src={imageBaseUrl+datum.poster_path} />
-                <h1>{datum.title}</h1>
+              <img src={imageBaseUrl+datum.poster_path} alt={data.title}/>
+              <h1>{datum.title}</h1>
               </Link>
             </li>
           ))}
