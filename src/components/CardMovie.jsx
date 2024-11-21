@@ -27,7 +27,7 @@ export const CardMovie = ({data}) => {
                     <CardContent>
                         <img src={imageBaseUrl+datum.poster_path} alt={data.title}/>
                     </CardContent>
-                    <Button>Add to favorites</Button>
+                    <Button className="mx-6 mb-6">Add to favorites</Button>
                 </Card>
                 </Link>
             </li>
