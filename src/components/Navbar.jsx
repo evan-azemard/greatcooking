@@ -13,20 +13,13 @@ import {
 
 export function Navbar() {
     return (
-        <NavigationMenu>
-            <NavigationMenuList>
-                <NavigationMenuItem>
-                <NavigationMenuTrigger><Link to="/">Home</Link></NavigationMenuTrigger>
-                <NavigationMenuTrigger><Link to="/movies">Movies</Link></NavigationMenuTrigger>
-                <NavigationMenuTrigger><Link to='/movie/:id'>Movie</Link></NavigationMenuTrigger>
-                <NavigationMenuTrigger><Link to='/favorites'>Favorites</Link></NavigationMenuTrigger>
-                <NavigationMenuContent>
-                    <NavigationMenuLink><Link to="/movies">Movies</Link></NavigationMenuLink>
-                    <NavigationMenuLink><Link to='/movie/:id'>Movie</Link></NavigationMenuLink>
-                    <NavigationMenuLink><Link to='/favorites'>Favorites</Link></NavigationMenuLink>
-                </NavigationMenuContent>
-                </NavigationMenuItem>
-            </NavigationMenuList>
-        </NavigationMenu>
+        <>
+        <nav>
+            <Link to="/" class="link">Home</Link>
+            <Link to="/movies" class="link">Movies</Link>
+            <Link to='/movie/:id' class="link">Movie</Link>
+            <Link to='/favorites' class="link">Favorites</Link>
+        </nav>
+        </>
     )
 }

@@ -41,8 +41,7 @@ export const Movies = () => {
   
   return (
     <>
-    <Navbar />
-    <CardMovie data= {data} />
+    <CardMovie data={data} />
     </>
   );
 };
