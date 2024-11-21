@@ -15,9 +15,6 @@ import {
 export const Favorites = () => {
     const [ load, setLoad ] = useState(true);
 
-};
-
-export function SearchForm() {
     return (
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -41,7 +38,7 @@ export function SearchForm() {
           </form>
         </Form>
       )
-    }
+};
 
 /*un form type search
 un bouton ajouter et supprimer

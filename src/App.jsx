@@ -4,6 +4,7 @@ import { Home } from "./components/Pages/Home"
 import { Movie } from "./components/Pages/Movie"
 import { Movies } from "./components/Pages/Movies"
 import { Favorites } from "./components/Pages/Favorites"
+import "./Style/style.css"
 import './index.css';
 function App() {
 
