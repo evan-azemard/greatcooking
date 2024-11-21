@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Navbar } from "./components/Navbar"
 import { Home } from "./components/Pages/Home"
-import { Recipe } from "./components/Pages/Recipe"
-import { Recipes } from "./components/Pages/Recipes"
-import { Button } from "@/components/ui/button"
+import { Movie } from "./components/Pages/Movie"
+import { Movies } from "./components/Pages/Movies"
+import { Favorites } from "./components/Pages/Favorites"
 import './index.css';
 function App() {
 
@@ -11,12 +11,12 @@ function App() {
     <>
       <BrowserRouter>
       <Navbar />
-      <Button>Click me</Button>
 
         <Routes>
           <Route path="/" Component={Home} />
-          <Route path="/recipe/:id" Component={Recipe} />
-          <Route path="/recipes" Component={Recipes} />
+          <Route path="/movie/:id" Component={Movie} />
+          <Route path="/movies" Component={Movies} />
+          <Route path="/favorites" Component={Favorites} />
           <Route path="*" element="Erreur page 404"/>
         </Routes>
       </BrowserRouter>

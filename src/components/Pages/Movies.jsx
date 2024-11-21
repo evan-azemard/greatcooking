@@ -1,29 +1,30 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { CardMovie } from "../CardMovie";
+import { Navbar } from "../Navbar"
+import { Proportions } from "lucide-react";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
 const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
-export const Recipe = () => {
+
+export const Movies = () => {
   const [load, setLoad] = useState(true);
   const [data, setData] = useState(null);
-  const {id} = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
 
-        const response = await axios.get(`${apiBaseUrl}/${id}`, {
+        const response = await axios.get(`${apiBaseUrl}/popular`, {
           params: {
             api_key: apiKey,
             language: 'fr-FR'
           }
         });
 
-        console.log("response: ",response)
-        console.log("(response.data: ",response.data)
-        if (response.data) setData(response.data);
+        console.log(response.data.results)
+        if (response.data) setData(response.data.results);
         else console.log("Error");
 
         setLoad(false);
@@ -35,23 +36,13 @@ export const Recipe = () => {
     fetchData();
   }, []);
 
-  console.log("data: ",data)
+  console.log(data)
   if (load) return <p>Loading...</p>;
   
   return (
     <>
-    <h1>Movie</h1>
-      {data && (
-        <ul>
-    
-            <li>
-                <img src={imageBaseUrl+data.poster_path} alt={data.title}/>
-                <h1>{data.title}</h1>
-            </li>
-         
-        </ul>
-      )}
-
+    <Navbar />
+    <CardMovie data= {data} />
     </>
   );
 };
