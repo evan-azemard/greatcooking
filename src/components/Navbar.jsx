@@ -5,6 +5,6 @@ export function Navbar() {
     <nav>
         <Link to="/">Home</Link> 
         <Link to="/recipes">Recipes</Link>
-        <Link to='/recipe'>Recipe</Link>
+        <Link to='/recipe/:id'>Recipe</Link>
     </nav>)
 }

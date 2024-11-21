@@ -12,7 +12,7 @@ function App() {
       <Navbar />
         <Routes>
           <Route path="/" Component={Home} />
-          <Route path="/recipe" Component={Recipe} />
+          <Route path="/recipe/:id" Component={Recipe} />
           <Route path="/recipes" Component={Recipes} />
           <Route path="*" element="Erreur page 404"/>
         </Routes>
