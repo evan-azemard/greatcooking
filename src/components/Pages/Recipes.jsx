@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { SearchMovie } from "../SearchMovie";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -14,7 +15,7 @@ export const Recipes = () => {
     const fetchData = async () => {
       try {
 
-        const response = await axios.get(`${apiBaseUrl}/popular`, {
+        const response = await axios.get(`${apiBaseUrl}/movie/popular`, {
           params: {
             api_key: apiKey,
             language: 'fr-FR'
@@ -39,6 +40,7 @@ export const Recipes = () => {
   
   return (
     <>
+    <SearchMovie />
       {data && (
         <ul>
           {data.map((datum) => (
