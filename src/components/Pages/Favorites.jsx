@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
+import { Navbar } from "../Navbar"
 import {
   Form,
   FormControl,
@@ -17,7 +18,7 @@ export const Favorites = () => {
 
     return (
         <>
-        <Navbar />
+        
         </>
       )
 };
