@@ -1,9 +1,9 @@
-import { fetchApi } from "@/utils/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { fetchApi } from "@/utils/api";
 
 
-export const Recipe = () => {
+export const Movie = () => {
   const { id } = useParams();
   const [load, setLoad] = useState(true);
   const [movie, setMovie] = useState(null);
@@ -26,14 +26,18 @@ export const Recipe = () => {
 
   return (
     <>
+    <h1>Movie</h1>
       {movie && (
-        <>
-
-          <h1>{movie.title}</h1>
-          <img src={`${imageBaseUrl}${movie.poster_path}`}alt={movie.title}
-          />
-        </>
+        <ul>
+    
+            <li>
+                <img src={imageBaseUrl+movie.poster_path} alt={movie.title}/>
+                <h1>{movie.title}</h1>
+            </li>
+         
+        </ul>
       )}
+
     </>
   );
 };

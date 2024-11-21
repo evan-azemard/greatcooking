@@ -1,0 +1,22 @@
+.cards {
+    width: 50%;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.link {
+    margin: 1em;
+}
+
+#input {
+    width: 40%;
+}
+
+form {
+    padding-top: 1em;
+}

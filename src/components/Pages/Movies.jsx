@@ -5,7 +5,8 @@ import { fetchApi } from "@/utils/api";
 
 const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
-export const Recipes = () => {
+
+export const Movies = () => {
   const [load, setLoad] = useState(true);
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -31,7 +32,7 @@ export const Recipes = () => {
         <ul>
           {movies.map((movie) => (
             <li key={movie.id}>
-              <Link to={`/recipe/${movie.id}`}>
+              <Link to={`/movie/${movie.id}`}>
                 <img src={imageBaseUrl + movie.poster_path} alt={movie.title} />
                 <h1>{movie.title}</h1>
               </Link>
@@ -39,6 +40,7 @@ export const Recipes = () => {
           ))}
         </ul>
       )}
+
     </>
   );
 };
