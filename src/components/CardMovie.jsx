@@ -16,7 +16,7 @@ export const CardMovie = ({data}) => {
     return (
     <>
     {data && (
-            <ul class="cards">
+            <ul className="cards">
             {data.map((datum) => (
             <li key={datum.id}>
                 <Link to={`/movie/${datum.id}`}>
