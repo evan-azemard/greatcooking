@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
@@ -6,8 +8,6 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { Link } from "react-router-dom"
-
 
 const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
@@ -25,8 +25,9 @@ export const CardMovie = ({data}) => {
                     <CardTitle>{datum.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                    <img src={imageBaseUrl+datum.poster_path} alt={data.title}/>
+                        <img src={imageBaseUrl+datum.poster_path} alt={data.title}/>
                     </CardContent>
+                    <Button>Add to favorites</Button>
                 </Card>
                 </Link>
             </li>

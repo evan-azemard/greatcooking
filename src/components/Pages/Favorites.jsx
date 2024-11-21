@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useForm } from "react-hook-form"
+import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Navbar } from "../Navbar"
 import {
   Form,
   FormControl,
@@ -18,14 +17,17 @@ export const Favorites = () => {
 
     return (
         <>
-        
+        <form action="POST">
+            <Input type="search" id="input"/>
+            <Button type="submit" id="button">Search</Button>
+        </form>
         </>
       )
 };
 
-/*un form type search
+/*
 un bouton ajouter et supprimer
-et un tableaux avec des donnée fictives
+et un tableau avec des donnée fictives
 pour voir un rendu avant d'implémenter l'api dessus
 Design navbar
 Design footer

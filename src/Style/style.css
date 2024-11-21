@@ -12,3 +12,11 @@ nav {
 .link {
     margin: 1em;
 }
+
+#input {
+    width: 40%;
+}
+
+form {
+    padding-top: 1em;
+}
