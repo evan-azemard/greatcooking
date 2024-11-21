@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchApi } from "@/utils/api";
+import { CardMovie } from "../CardMovie";
 
 
 export const Movie = () => {
@@ -27,17 +28,7 @@ export const Movie = () => {
   return (
     <>
     <h1>Movie</h1>
-      {movie && (
-        <ul>
-    
-            <li>
-                <img src={imageBaseUrl+movie.poster_path} alt={movie.title}/>
-                <h1>{movie.title}</h1>
-            </li>
-         
-        </ul>
-      )}
-
+    {movie && <CardMovie movies={movie}/>}
     </>
   );
 };

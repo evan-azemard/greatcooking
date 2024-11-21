@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { SearchMovie } from "../SearchMovie";
 import { fetchApi } from "@/utils/api";
+import { CardMovie } from "../CardMovie";
 
 const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
 
@@ -28,19 +29,7 @@ export const Movies = () => {
   return (
     <>
       <SearchMovie />
-      {movies && (
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>
-              <Link to={`/movie/${movie.id}`}>
-                <img src={imageBaseUrl + movie.poster_path} alt={movie.title} />
-                <h1>{movie.title}</h1>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-
+      {movies && <CardMovie movies={movies}/>}
     </>
   );
 };

@@ -1,5 +1,9 @@
 import { fetchApi } from "@/utils/api";
 import { useEffect, useState } from "react";
+import { CardMovie } from "./CardMovie";
+import { Input } from "antd";
+const { Search } = Input;
+
 export const SearchMovie = () => {
   const [search, setSearch] = useState('');
   const [load, setLoad] = useState(true);
@@ -29,23 +33,14 @@ export const SearchMovie = () => {
   
   return (<>
     <form>
-      <input
+      <Search
         type="search"
         onChange={(e) => setSearch(e.target.value)}
         value={search}
         placeholder="Rechercher un film"
       />
     </form>
-    {movies && (
-      movies.map((movie) => (
-        <div key={movie.id}>
-          <p>{movie.title}</p>
-          <img
-            src={`${imageBaseUrl}${movie.poster_path}`}
-            alt={movie.title}
-          />
-        </div>
+    {movies && <CardMovie movies={movies}/>}
 
-      )))}
   </>)
 }
