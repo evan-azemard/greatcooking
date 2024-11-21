@@ -16,11 +16,11 @@ export const CardMovie = ({data}) => {
     return (
     <>
     {data && (
-            <ul className="cards">
+            <ul className="w-80">
             {data.map((datum) => (
             <li key={datum.id}>
                 <Link to={`/movie/${datum.id}`}>
-                <Card>
+                <Card className="shadow-xl flex-wrap">
                     <CardHeader>
                     <CardTitle>{datum.title}</CardTitle>
                     </CardHeader>

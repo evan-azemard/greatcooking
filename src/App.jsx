@@ -12,7 +12,6 @@ function App() {
     <>
       <BrowserRouter>
       <Navbar />
-      <SearchMovies />
 
         <Routes>
           <Route path="/" Component={Home} />
