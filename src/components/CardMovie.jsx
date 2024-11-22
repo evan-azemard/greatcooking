@@ -1,7 +1,8 @@
-import { addFavorite } from "@/features/favoriteMovies/favoriteMoviesSlice";
+import { addFavorite, removeFavorite } from "@/features/favoriteMovies/favoriteMoviesSlice";
 import { Card, Button } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { ButtonComponent } from "./ButtonComponent";
 
 const { Meta } = Card;
 
@@ -9,6 +10,14 @@ export const CardMovie = ({ movies }) => {
   const moviesArray = Array.isArray(movies) ? movies : [movies];
   const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
   const dispatch = useDispatch();
+  const favoriteMoviesId = useSelector(
+    (state) => state.favoriteMovies.id
+  );
+
+  if (moviesArray.length === 0) {
+    return <p>Aucun film à afficher.</p>;
+  }
+
   return (
     <div style={styles.grid}>
       {moviesArray.map((movie) => (
@@ -23,18 +32,20 @@ export const CardMovie = ({ movies }) => {
             />
           }
         >
-          <Meta title={movie.title} description={movie.overview} />
-          <Link to={`/movie/${movie.id}`}>
-            <Button type="primary" style={styles.button}>
-              Plus d'infos
-            </Button>
-          </Link>
-          <Button
-            onClick={() => dispatch(addFavorite(movie.id))}
-            type="default"
-          >
-            Ajouter au favoris
-          </Button>
+          <div style={styles.cardContent}>
+            <Meta title={movie.title} description={movie.overview} />
+            <div style={styles.buttonContainer}>
+
+            <Link to={`/movie/${movie.id}`}>
+              <ButtonComponent>Plus d'informations</ButtonComponent>
+            </Link>
+
+              {favoriteMoviesId.includes(movie.id)
+                ? <ButtonComponent myFunction={() => dispatch(removeFavorite(movie.id))}>Retirer des favoris</ButtonComponent>
+                : <ButtonComponent myFunction={() => dispatch(addFavorite(movie.id))}>Ajouter au favoris</ButtonComponent>
+              }
+            </div>
+          </div>
         </Card>
       ))}
     </div>
@@ -44,22 +55,24 @@ export const CardMovie = ({ movies }) => {
 const styles = {
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "20px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gap: "30px",
     padding: "20px",
-    with: "100px",
   },
   card: {
     width: "100%",
     maxWidth: "400px",
     margin: "0 auto",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
-  image: {
-    height: "300px",
-    objectFit: "cover",
-  },
-  button: {
-    marginTop: "10px",
-    width: "100%",
-  },
+  cardContent: {
+    display: "flex",
+    flexDirection: "column",
+    },
+    buttonContainer: {
+      marginTop: "20px",
+      padding: '10px',
+    }
 };
