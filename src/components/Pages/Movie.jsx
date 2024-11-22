@@ -8,7 +8,6 @@ export const Movie = () => {
   const { id } = useParams();
   const [load, setLoad] = useState(true);
   const [movie, setMovie] = useState(null);
-  const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
   const [error, setError] = useState(null);
 
   useEffect(() => {
