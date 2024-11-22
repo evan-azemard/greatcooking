@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchApi } from "@/utils/api";
+import { CardMovie } from "../CardMovie";
 
 
 export const Movie = () => {
   const { id } = useParams();
   const [load, setLoad] = useState(true);
   const [movie, setMovie] = useState(null);
-  const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -27,17 +27,7 @@ export const Movie = () => {
   return (
     <>
     <h1>Movie</h1>
-      {movie && (
-        <ul>
-    
-            <li>
-                <img src={imageBaseUrl+movie.poster_path} alt={movie.title}/>
-                <h1>{movie.title}</h1>
-            </li>
-         
-        </ul>
-      )}
-
+    {movie && <CardMovie movies={movie}/>}
     </>
   );
 };

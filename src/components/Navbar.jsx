@@ -1,25 +1,28 @@
+import { Layout, Menu } from "antd";
+import { Header } from "antd/es/layout/layout";
 import { Link } from "react-router-dom";
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuIndicator,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
-  
+
+
 
 export function Navbar() {
     return (
-        <>
-        <nav>
-            <Link to="/" class="link">Home</Link>
-            <Link to="/movies" class="link">Movies</Link>
-            <Link to='/movie/:id' class="link">Movie</Link>
-            <Link to='/favorites' class="link">Favorites</Link>
-        </nav>
-        </>
-    )
-}
+        <Layout>
+          <Header style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ color: "white", fontSize: "20px", fontWeight: "bold" }}>
+              MyApp
+            </div>
+            <Menu theme="dark" mode="horizontal" style={{ minWidth: "300px" }}>
+              <Menu.Item key="1">
+                <Link to="/">Home</Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/movies">Movies</Link>
+              </Menu.Item>
+              <Menu.Item key="3">
+                <Link to="/favorites">Favorites</Link>
+              </Menu.Item>
+            </Menu>
+          </Header>
+        </Layout>
+      );
+    }
